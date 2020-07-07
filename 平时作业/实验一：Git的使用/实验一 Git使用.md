@@ -98,10 +98,10 @@ Git的使用
   ![账号添加](images\Git_07.png)
 
 3. 接着，我们再次点击 Commit之后，我们会发现还是提交失败，这是因为我们没有填写 Commit Message。
-  ![错误2](images\Git_08.png)
+    ![错误2](images\Git_08.png)
 
 4. 填写完 Commit Message 之后我们便可以继续点击提交。
-  ![出入message](images\Git_09.png)message
+    ![出入message](images\Git_09.png)message
 
 5. 点击commit进行提交 ，可以在历史记录进行查看提交记录。
 
@@ -111,37 +111,53 @@ Git的使用
 
   ![image-20200707210747070](images\Git_11.png)
 
-  ******
+******
 
 7. 输入用户名和密码之后便成功地 Push到远端了。
-  ![image-20200707210711797](C:\Users\YYcoder\AppData\Roaming\Typora\typora-user-images\image-20200707210711797.png)
+    ![image-20200707210711797](C:\Users\YYcoder\AppData\Roaming\Typora\typora-user-images\image-20200707210711797.png)
 
 #### 4.3 创建分支
 1. 点击菜单栏上的 Branch，输入相应的分支名字，并点击 Create 进行创建
-![Branch创建](images\Git_12.png)
-2. 输入所要新建的分支的分支名，点击 Create 即可。
+  ![Branch创建](images\Git_12.png)
+
+2. 创建完成后，分支列表显示该分支。
+
+   ![image-20200707221610699](E:\3117007142-陈悦演-体系结构\平时作业\实验一：Git的使用\images\Git_14.png)
 
 #### Git 冲突
-1. 从远端拉取别人上传的内容,输入用户名和密码之后便拉取成功。
-![Remote-fetch](screenshot/git-conflict-step1.PNG)
-![拉取成功](screenshot/git-conflict-step2.PNG)
-2. 进行会产生冲突的操作，并试图提交
+1从远端拉取别人上传的内容,输入用户名和密码之后便拉取成功。
+
+![拉取文件](images\gitClash_01.png)
+
+![拉取成功](images\gitClash_02.png)
+
+
+
+2.进行会产生冲突的操作，并试图提交
 ![试图提交](screenshot/git-conflict-step3.PNG)
-3. 提交失败，因为远端的版本比我的版本要新（别人有提交新的内容），我需要先下拉远端最新的版本，然后点击 Merge 合并。
+
+3.提交失败，因为远端的版本比我的版本要新（别人有提交新的内容），我需要先下拉远端最新的版本，然后点击 Merge 合并。
 ![提交失败](screenshot/git-conflict-step4.PNG)
-4. 在菜单上点击合并。
+
+4.在菜单上点击合并。
 ![Merge](screenshot/git-conflict-step5.PNG)
-4. 选择要合并的分支。
+
+5.选择要合并的分支。
 ![选择Merge分支](screenshot/git-conflict-step6.PNG)
-4. 合并失败。
+
+6.合并失败。
 ![Merge失败](screenshot/git-conflict-step7.PNG)
-4. 查看冲突信息。
+
+7.查看冲突信息。
 ![查看冲突信息](screenshot/git-conflict-step8.PNG)
-5. 解决冲突。
+
+8.解决冲突。
 ![Remote-fetch](screenshot/git-conflict-step11.PNG)
-6. 再次提交
+
+9.再次提交
 ![Remote-fetch](screenshot/git-conflict-step9.PNG)
-7. 提交成功，意味着冲突已经解决
+
+10.提交成功，意味着冲突已经解决
 
 ![Remote-fetch](screenshot/git-conflict-step10.PNG)
 
