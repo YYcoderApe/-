@@ -133,11 +133,11 @@ Git的使用
 
 
 
-2.进行会产生冲突的操作，并试图提交
-![试图提交](screenshot/git-conflict-step3.PNG)
+2.进行会产生冲突的操作，master本地commit新的文件，然后push提交到远端，会发现提交失败。因为远端的版本比我的版本要新（别人有提交新的内容），我需要先下拉远端最新的版本，然后点击 Merge 合并。
 
-3.提交失败，因为远端的版本比我的版本要新（别人有提交新的内容），我需要先下拉远端最新的版本，然后点击 Merge 合并。
-![提交失败](screenshot/git-conflict-step4.PNG)
+
+
+![image-20200707222841172](C:\Users\YYcoder\AppData\Roaming\Typora\typora-user-images\image-20200707222841172.png)
 
 4.在菜单上点击合并。
 ![Merge](screenshot/git-conflict-step5.PNG)
