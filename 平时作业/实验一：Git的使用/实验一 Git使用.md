@@ -1,4 +1,5 @@
-# Git的使用
+Git的使用
+
 ---
 
 ## 一、实验目的
@@ -16,20 +17,22 @@
 
 ## 四、实验内容
 
-4.1 Git安装流程
+### 4.1 Git安装流程
 
-（1）获取Git安装程序
+#### （1）获取Git安装程序
 
 ![获取Git安装程序](images/step_01.png)
 
  到Git官网下载，根据自己的操作系统进行下载，这里采用window浏览，Git官网自动之别到了我使用的操作系统，点击下载后可以得到Git-2.24.0-64-bit.exe文件。点击进入安装过程
 
-#### （2）使用许可声明
-![阅读软件许可](images\step_02.png)
+####  （2）使用许可声明
+
+![使用许可声明](images\step_02.png)
 
 阅读完并点击 next 进行下一步安装。
 
-#### （3）选择安装的组件
+####  （3）选择安装的组件
+
 ![选择安装的组件](images\step_03.png)
 
 我们可以选择：
@@ -38,46 +41,50 @@
 2. 在右键菜单中添加"Git Bash Here"和"Git GUI Here"，这样我们可以在任意文件路径中通过右键菜单打开 Git
 3. 关联 .git 和 .sh 文件到 Git
 
-#### (4)设置路径环境变量
+#### （4）设置路径环境变量
+
 ![设置路径环境变量](images\step_04.PNG)
 
 这个界面是设置PATH环境我们可以选择配置，选择第二种配置，我们可以从Git Bash，命令提示符和Windows PowerShell以及在PATH中寻找Git的任何第三方软件中使用Git，这里推荐选择第二种配置
 
-#### 选择换行格式
-![选择换行格式](screenshot/git-step4.PNG)
+#### （5）选择换行格式
+![选择换行格式](images\step_05.PNG)
 
-#### 配置 Git Bash 打开的终端
-![选择换行格式](screenshot/git-step5.PNG)
+#### （6）配置Git Bash的终端模拟器
+![配置终端](images\step_06.PNG)
 
-#### 配置额外的选项
-![配置额外的选项](screenshot/git-step6.PNG)
+#### （7）配置额外的选项
+![配置额外的选项](images\step_07.PNG)
 
 我们可以选择启用文件系统缓存。
 
-#### 配置实验性选项
-![配置实验性选项](screenshot/git-step7.PNG)
+#### （8）配置实验性选项
+![配置实验性选项](images\step_08.PNG)
 
-#### 焦急地等待安装s
-![配置实验性选项](screenshot/git-step8.PNG)
+#### （9）安装进度指示	
+![安装进度指示](images\step_09.PNG)
 
-#### 最后，安装成功
-![配置实验性选项](screenshot/git-step9.PNG)
+#### （10）安装完成
+![安装完成](images\step_10.PNG)
 
 等待安装完后，我们可以在之后的界面选择立即启动 Git Bash和 查看当前的版本说明。
 
-### Git 的使用
-#### 克隆 GitLab 上的仓库到本地
+### 4.2创建本地仓库
+（1）首先我们创建后一个目录，然后在文件夹里面右键点击打开 Git Gui，选择create New Repository。
 
-1. 首先我们点击打开 Git Gui
-2. 选择 Clone Existing Repository ，克隆已存在的仓库到本地
-![克隆仓库](screenshot/git-clone-step1.PNG)
-3. 接着输入远端仓库的地址以及我们想要克隆到我们本地的地址，输入完后我们点击 Clone。
-![输入地址](screenshot/git-clone-step2.PNG)
-4. 然后我们在 OpenSSH 窗口中输入我们的用户名 Username 和密码 Password。
-5. 点击OK,这样便成功地把 GitLab 上的仓库克隆到本地。
-![克隆成功](screenshot/git-clone-step3.PNG)
+![创建仓库](images\Git_01.png)
 
-#### Git 的提交
+（2） 选择仓库路径，点击create后目录会出现.git文件。
+
+![选择路径](images\Git_02.png)
+
+（3）也可以右键打开git bash，输入git init 命令也会生成.git文件
+![git init](images\Git_03.png)
+
+（4）产生.git表示本地仓库创建成功，进入git gui界面就可以进行相关可视化的操作了。
+![git_gui界面](images\Git_04.png)
+
+### 4.3 Git 的提交
 1. 把我们想 commit 的文件加入到 暂存区 Staged Changes(Will commit),可以直接点击 Stage Changed。
 ![暂存](screenshot/git-use-step1.PNG)
 
