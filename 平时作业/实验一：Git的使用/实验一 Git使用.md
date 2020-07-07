@@ -86,35 +86,39 @@ Git的使用
 
 ### 4.3 Git 的提交
 1. 把我们想 commit 的文件加入到 暂存区 Staged Changes(Will commit),可以直接点击 Stage Changed。
-![暂存](screenshot/git-use-step1.PNG)
+
+  ![暂存](images\Git_05.png)
 
 2. 如果我们这时候直接点击 Commit,会发现 Commit失败,这是因为我们没有输入我们的用户信息。可以用以下方法解决：
-![错误1](screenshot/git-use-step2.PNG)
 
-    1. 点击菜单栏上的 Edit,选择 Options：
-    ![edit-options](screenshot/git-use-step3.PNG)
+  ![错误1](images\Git_06.png)
 
-    2. 输入User Name 和 Email Address：
-    ![edit-options](screenshot/git-use-step4.PNG)
+  点击菜单栏上的 Edit,选择 Options，然后输入User Name 和 Email Address，最后点击save之后便可以了。
 
-    3. 点击save之后便可以了。
+  ![账号添加](images\Git_07.png)
+
 3. 接着，我们再次点击 Commit之后，我们会发现还是提交失败，这是因为我们没有填写 Commit Message。
-![错误2](screenshot/git-use-step5.PNG)
+  ![错误2](images\Git_08.png)
 
 4. 填写完 Commit Message 之后我们便可以继续点击提交。
-![填写 Commit](screenshot/git-use-step6.PNG)
+  ![出入message](images\Git_09.png)message
 
-5. Commit之后我们点击 Push。
-![Push](screenshot/git-use-step7.PNG)
+5. 点击commit进行提交 ，可以在历史记录进行查看提交记录。
 
-6. 选择提交的分支。
-![选择提交的分支](screenshot/git-use-step8.PNG)
+  ![commit操作](images\Git_10.png)
+
+6. Commit之后我们点击 Push，选择提交的分支。
+
+  ![image-20200707210747070](images\Git_11.png)
+
+  ******
+
 7. 输入用户名和密码之后便成功地 Push到远端了。
-![Push 成功](screenshot/git-use-step9.PNG)
+  ![image-20200707210711797](C:\Users\YYcoder\AppData\Roaming\Typora\typora-user-images\image-20200707210711797.png)
 
-#### 创建分支
-1. 点击菜单栏上的 Brand，选择 Create ;
-![创建分支](screenshot/create-branch.PNG)
+#### 4.3 创建分支
+1. 点击菜单栏上的 Branch，输入相应的分支名字，并点击 Create 进行创建
+![Branch创建](images\Git_12.png)
 2. 输入所要新建的分支的分支名，点击 Create 即可。
 
 #### Git 冲突
