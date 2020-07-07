@@ -135,37 +135,33 @@ Git的使用
 
 2.进行会产生冲突的操作，master本地commit新的文件，然后push提交到远端，会发现提交失败。因为远端的版本比我的版本要新（别人有提交新的内容），我需要先下拉远端最新的版本，然后点击 Merge 合并。
 
+![](images\gitClash_03.png)
 
+![](images\gitClash_04.png)
 
-![image-20200707222841172](C:\Users\YYcoder\AppData\Roaming\Typora\typora-user-images\image-20200707222841172.png)
+4.在菜单上点击Merge进入界面，选择要合并的分支。
 
-4.在菜单上点击合并。
-![Merge](screenshot/git-conflict-step5.PNG)
+![选择Merge分支](images\gitClash_05.png)
 
-5.选择要合并的分支。
-![选择Merge分支](screenshot/git-conflict-step6.PNG)
+5.合并失败。
+![合并失败](images\gitClash_06.png)
 
-6.合并失败。
-![Merge失败](screenshot/git-conflict-step7.PNG)
+6.查看冲突信息。
+![查看冲突信息](images\gitClash_07.png)
 
-7.查看冲突信息。
-![查看冲突信息](screenshot/git-conflict-step8.PNG)
+7.解决冲突。
+![Remote-fetch](images\gitClash_08.png)
 
-8.解决冲突。
-![Remote-fetch](screenshot/git-conflict-step11.PNG)
-
-9.再次提交
-![Remote-fetch](screenshot/git-conflict-step9.PNG)
+8.再次提交
+![Remote-fetch](images\gitClash_09.png)
 
 10.提交成功，意味着冲突已经解决
 
-![Remote-fetch](screenshot/git-conflict-step10.PNG)
+![Remote-fetch](images\gitClash_10.png)
 
 ## 实验总结
-在以前的编码开发实践过程中使用了 SVN 来协助团队开发，然而在这次实验中学习使用 Git，感受到了分布式版本控制系统确实较于集中式版本控制系统更为好用以及有效率，每个开发者都拥有自己的版本控制库，在自己的版本库上可以任意的执行提交代码、创建分支等行为。
+​	通过对Git工具的使用，让我体会到了它的强大之处，它可以有效的运用于团队之间的协作开发。经过这次实验中的Git操作的练习，让我理解到了分布式版本控制系统确实较于集中式版本控制系统更为好用以及有效率，每个开发者都拥有自己的版本控制库，在自己的版本库上可以任意的执行提交代码、创建分支、拉取合并等行为。在实验中初步掌握了Git 的安装和简单使用，增加文件、提交、创建分支、增加远程、下拉、上推、合并，能比较熟悉地使用 Git 命令或者 Git GUI 对自己的仓库进行版本管理。
 
-在实验过程中遇到一个比较大的问题是冲突问题，学会去查看冲突信息，找到发生冲突的地方，并作出修改解决冲突，最后才能再次提交并推送到远程仓库。
+​	在Git的操作过程中遇到的合并冲突问题让我印象非常深刻，因为不同合作者在操作同个文件的时候，修改之后拉取合并可能会产生冲突，然后我也学会了去查看冲突信息，找到发生冲突的地方，并作出修改解决冲突，最后才能再次提交并推送到远程仓库。通过一系列的操作，最终解决了合并存在的冲突
 
-在实验中初步掌握了Git 的简单使用，增加文件、提交、创建分支、增加远程、下拉、上推、合并，能比较熟悉地使用 Git 命令或者 Git GUI 对自己的仓库进行版本管理。
-
-在实验中，结合课堂上学习到的理论知识，加以实践，加深了对理论知识的理解，确实在学习实践的过程中受益匪浅。
+​	经过本次的实验，结合课堂上学习到的理论知识，不断地进行实践，让我对Git地操作更加熟悉，也加深了对理论知识的理解，整个过程的学习让我收获了不少知识。
