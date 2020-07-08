@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yycoder.blog.dao.TbCategoryMapper">
+  <resultMap id="BaseResultMap" type="com.yycoder.blog.entity.TbCategory">
+    <id column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
+    <result column="category_state" jdbcType="INTEGER" property="categoryState" />
+    <result column="category_time" jdbcType="TIMESTAMP" property="categoryTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    category_id, category_name, category_state, category_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_category
+    where category_id = #{categoryId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_category
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_category
+    where category_id = #{categoryId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yycoder.blog.entity.TbCategory">
+    insert into tb_category (category_id, category_name, category_state, 
+      category_time)
+    values (#{categoryId,jdbcType=INTEGER}, #{categoryName,jdbcType=VARCHAR}, #{categoryState,jdbcType=INTEGER}, 
+      #{categoryTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yycoder.blog.entity.TbCategory">
+    insert into tb_category
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="categoryName != null">
+        category_name,
+      </if>
+      <if test="categoryState != null">
+        category_state,
+      </if>
+      <if test="categoryTime != null">
+        category_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryName != null">
+        #{categoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryState != null">
+        #{categoryState,jdbcType=INTEGER},
+      </if>
+      <if test="categoryTime != null">
+        #{categoryTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yycoder.blog.entity.TbCategory">
+    update tb_category
+    <set>
+      <if test="categoryName != null">
+        category_name = #{categoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryState != null">
+        category_state = #{categoryState,jdbcType=INTEGER},
+      </if>
+      <if test="categoryTime != null">
+        category_time = #{categoryTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where category_id = #{categoryId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yycoder.blog.entity.TbCategory">
+    update tb_category
+    set category_name = #{categoryName,jdbcType=VARCHAR},
+      category_state = #{categoryState,jdbcType=INTEGER},
+      category_time = #{categoryTime,jdbcType=TIMESTAMP}
+    where category_id = #{categoryId,jdbcType=INTEGER}
+  </update>
+</mapper>

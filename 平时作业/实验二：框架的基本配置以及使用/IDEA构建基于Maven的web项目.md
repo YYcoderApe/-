@@ -97,6 +97,66 @@
 
 ### 4.3 IDEA创建web项目并编写代码
 
+（1）打开IDEA软件，进入操作界面，点击新建项目。
+
+![新建项目](images\web_01.png)
+
+（2）选择创建一个maven类型的项目，并选择安装好了的JDK。
+
+![创建maven类型](images\web_02.png)
+
+（3）输入组织名称、模块名称、项目版本号等信息
+
+![输入信息](images\web_03.png)
+
+（4）配置自己的maven，以及相关的配置信息
+
+![maven配置](images\web_04.png)
+
+（5）点击next进入下一步操作，选择好安装路径，点击finish。
+
+![选择好安装路径](images\web_05.png)
+
+（6）创建完毕后打开就可以看到相关的pom文件和目录结构了。
+
+![目录结构](images\web_06.png)
+
+（7）这样创建出来的maven项目，可以进行web项目的开发了，为了方便开发，我们引入pom依赖，将maven项目转变为springboot项目。
+
+```xml
+<parent>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-parent</artifactId>
+  <version>2.2.2.RELEASE</version>
+  <relativePath/> 
+</parent>
+
+<dependencies>
+	<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+</dependencies>
+```
+
+（8）按照mvc模式对目录文件进行修改，让结构层次更加清晰。
+
+![目录优化](images\web_07.png)
+
+（9）启动项目成功，表示基于maven的springboot项目构建成功。
+
+![项目启动成功](images\web_08.png)
+
+（10）在application.yml进行数据库的配置，以及mybatis与数据库mysql的连接保持正常，提前创建好数据库的数据，通过反向代理方式生成数据的基本操作方式。
+
+![配置文件](images\web_09.png)
+
+![mapper文件](images\web_10.png)
+
+（11）编写相应的controller代码、service层代码以及前端代码，通过controller运用springMvc的访问方式与前端代码进行数据的获取与交互，实现整个web项目功能的编写实现。
+
+（12）代码编写完毕，运行项目，打开浏览器查看效果。
+
 ### 4.4 实现效果截图
 
 ## 五、实验总结.

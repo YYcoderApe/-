@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yycoder.blog.dao.TbBlogMapper">
+  <resultMap id="BaseResultMap" type="com.yycoder.blog.entity.TbBlog">
+    <id column="blog_id" jdbcType="INTEGER" property="blogId" />
+    <result column="blog_title" jdbcType="VARCHAR" property="blogTitle" />
+    <result column="blog_count" jdbcType="INTEGER" property="blogCount" />
+    <result column="blog_time" jdbcType="TIMESTAMP" property="blogTime" />
+    <result column="blog_typeId" jdbcType="INTEGER" property="blogTypeid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.yycoder.blog.entity.TbBlog">
+    <result column="blog_content" jdbcType="LONGVARCHAR" property="blogContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    blog_id, blog_title, blog_count, blog_time, blog_typeId
+  </sql>
+  <sql id="Blob_Column_List">
+    blog_content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_blog
+    where blog_id = #{blogId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_blog
+    where blog_id = #{blogId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yycoder.blog.entity.TbBlog">
+    insert into tb_blog (blog_id, blog_title, blog_count, 
+      blog_time, blog_typeId, blog_content
+      )
+    values (#{blogId,jdbcType=INTEGER}, #{blogTitle,jdbcType=VARCHAR}, #{blogCount,jdbcType=INTEGER}, 
+      #{blogTime,jdbcType=TIMESTAMP}, #{blogTypeid,jdbcType=INTEGER}, #{blogContent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yycoder.blog.entity.TbBlog">
+    insert into tb_blog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="blogId != null">
+        blog_id,
+      </if>
+      <if test="blogTitle != null">
+        blog_title,
+      </if>
+      <if test="blogCount != null">
+        blog_count,
+      </if>
+      <if test="blogTime != null">
+        blog_time,
+      </if>
+      <if test="blogTypeid != null">
+        blog_typeId,
+      </if>
+      <if test="blogContent != null">
+        blog_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="blogId != null">
+        #{blogId,jdbcType=INTEGER},
+      </if>
+      <if test="blogTitle != null">
+        #{blogTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="blogCount != null">
+        #{blogCount,jdbcType=INTEGER},
+      </if>
+      <if test="blogTime != null">
+        #{blogTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blogTypeid != null">
+        #{blogTypeid,jdbcType=INTEGER},
+      </if>
+      <if test="blogContent != null">
+        #{blogContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yycoder.blog.entity.TbBlog">
+    update tb_blog
+    <set>
+      <if test="blogTitle != null">
+        blog_title = #{blogTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="blogCount != null">
+        blog_count = #{blogCount,jdbcType=INTEGER},
+      </if>
+      <if test="blogTime != null">
+        blog_time = #{blogTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blogTypeid != null">
+        blog_typeId = #{blogTypeid,jdbcType=INTEGER},
+      </if>
+      <if test="blogContent != null">
+        blog_content = #{blogContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where blog_id = #{blogId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yycoder.blog.entity.TbBlog">
+    update tb_blog
+    set blog_title = #{blogTitle,jdbcType=VARCHAR},
+      blog_count = #{blogCount,jdbcType=INTEGER},
+      blog_time = #{blogTime,jdbcType=TIMESTAMP},
+      blog_typeId = #{blogTypeid,jdbcType=INTEGER},
+      blog_content = #{blogContent,jdbcType=LONGVARCHAR}
+    where blog_id = #{blogId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yycoder.blog.entity.TbBlog">
+    update tb_blog
+    set blog_title = #{blogTitle,jdbcType=VARCHAR},
+      blog_count = #{blogCount,jdbcType=INTEGER},
+      blog_time = #{blogTime,jdbcType=TIMESTAMP},
+      blog_typeId = #{blogTypeid,jdbcType=INTEGER}
+    where blog_id = #{blogId,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="queryBlogById" resultType="com.yycoder.blog.vo.BlogDetailVo" parameterType="Integer">
+        SELECT tb.blog_id as blogId,tb.blog_title as blogTitle,tb.blog_count as blogCount,
+       tb.blog_content as blogContent,tb.blog_time as blogTime,tc.category_name as categoryName
+        FROM tb_blog tb
+        left join tb_category tc on tb.blog_typeId=tc.category_id
+         where tb.blog_id=#{id}
+         order by tb.blog_time desc
+    </select>
+  <select id="queryAllBlogByTitle" resultType="com.yycoder.blog.vo.BlogDetailVo" parameterType="String">
+        SELECT tb.blog_id as blogId,tb.blog_title as blogTitle,tb.blog_count as blogCount,
+       tb.blog_content as blogContent,tb.blog_time as blogTime,tc.category_name as categoryName
+        FROM tb_blog tb
+        left join tb_category tc on tb.blog_typeId=tc.category_id
+         where  tb.blog_title like #{keyWord}
+         order by tb.blog_time desc
+    </select>
+  <select id="queryAllBlog" resultType="com.yycoder.blog.vo.BlogDetailVo">
+       SELECT tb.blog_id as blogId,tb.blog_title as blogTitle,tb.blog_count as blogCount,
+       tb.blog_content as blogContent,tb.blog_time as blogTime,tc.category_name as categoryName
+        FROM tb_blog tb left join tb_category tc on tb.blog_typeId=tc.category_id
+        order by tb.blog_time desc
+    </select>
+  <select id="queryAllBlogByTypeId" parameterType="java.lang.Integer" resultType="com.yycoder.blog.vo.BlogDetailVo">
+        SELECT tb.blog_id as blogId,tb.blog_title as blogTitle,tb.blog_count as blogCount,
+       tb.blog_content as blogContent,tb.blog_time as blogTime,tc.category_name as categoryName
+        FROM tb_blog tb,tb_category tc
+        where tb.blog_typeId=#{blogTypeid}
+        and tc.category_id=#{blogTypeid}
+        order by tb.blog_time desc
+    </select>
+</mapper>
