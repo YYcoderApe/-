@@ -10,6 +10,6 @@ public interface TbBloggerMapper extends BaseMapper<TbBlogger>{
 //    //博主登录.(根据用户名进行查询记录)
 //    TbBlogger bloggerLogin(@Param("bloggerName") String bloggerName);
 //
-//    //查询博主信息
-//    TbBlogger selectAll();
+    //查询博主信息
+    TbBlogger selectAll();
 }

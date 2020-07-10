@@ -14,7 +14,7 @@ public interface TbCommentMapper extends BaseMapper<TbComment>{
 //
 //    List<CommentsVo> getCommentsList(@Param("blogId") int blogId);
 //
-//    Integer getCommentCount(@Param("blogId") int blogId);
+    Integer getCommentCount(@Param("blogId") Integer blogId);
 
 
 }

@@ -101,15 +101,15 @@
     </set>
     where blog_id = #{blogId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yycoder.blog.entity.TbBlog">
-    update tb_blog
-    set blog_title = #{blogTitle,jdbcType=VARCHAR},
-      blog_count = #{blogCount,jdbcType=INTEGER},
-      blog_time = #{blogTime,jdbcType=TIMESTAMP},
-      blog_typeId = #{blogTypeid,jdbcType=INTEGER},
-      blog_content = #{blogContent,jdbcType=LONGVARCHAR}
-    where blog_id = #{blogId,jdbcType=INTEGER}
-  </update>
+<!--  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yycoder.blog.entity.TbBlog">-->
+<!--    update tb_blog-->
+<!--    set blog_title = #{blogTitle,jdbcType=VARCHAR},-->
+<!--      blog_count = #{blogCount,jdbcType=INTEGER},-->
+<!--      blog_time = #{blogTime,jdbcType=TIMESTAMP},-->
+<!--      blog_typeId = #{blogTypeid,jdbcType=INTEGER},-->
+<!--      blog_content = #{blogContent,jdbcType=LONGVARCHAR}-->
+<!--    where blog_id = #{blogId,jdbcType=INTEGER}-->
+<!--  </update>-->
   <update id="updateByPrimaryKey" parameterType="com.yycoder.blog.entity.TbBlog">
     update tb_blog
     set blog_title = #{blogTitle,jdbcType=VARCHAR},
@@ -120,14 +120,14 @@
   </update>
 
 
-  <select id="queryBlogById" resultType="com.yycoder.blog.vo.BlogDetailVo" parameterType="Integer">
-        SELECT tb.blog_id as blogId,tb.blog_title as blogTitle,tb.blog_count as blogCount,
-       tb.blog_content as blogContent,tb.blog_time as blogTime,tc.category_name as categoryName
-        FROM tb_blog tb
-        left join tb_category tc on tb.blog_typeId=tc.category_id
-         where tb.blog_id=#{id}
-         order by tb.blog_time desc
-    </select>
+<!--  <select id="queryBlogById" resultType="com.yycoder.blog.vo.BlogDetailVo" parameterType="Integer">-->
+<!--        SELECT tb.blog_id as blogId,tb.blog_title as blogTitle,tb.blog_count as blogCount,-->
+<!--       tb.blog_content as blogContent,tb.blog_time as blogTime,tc.category_name as categoryName-->
+<!--        FROM tb_blog tb-->
+<!--        left join tb_category tc on tb.blog_typeId=tc.category_id-->
+<!--         where tb.blog_id=#{id}-->
+<!--         order by tb.blog_time desc-->
+<!--    </select>-->
   <select id="queryAllBlogByTitle" resultType="com.yycoder.blog.vo.BlogDetailVo" parameterType="String">
         SELECT tb.blog_id as blogId,tb.blog_title as blogTitle,tb.blog_count as blogCount,
        tb.blog_content as blogContent,tb.blog_time as blogTime,tc.category_name as categoryName
@@ -142,12 +142,12 @@
         FROM tb_blog tb left join tb_category tc on tb.blog_typeId=tc.category_id
         order by tb.blog_time desc
     </select>
-  <select id="queryAllBlogByTypeId" parameterType="java.lang.Integer" resultType="com.yycoder.blog.vo.BlogDetailVo">
-        SELECT tb.blog_id as blogId,tb.blog_title as blogTitle,tb.blog_count as blogCount,
-       tb.blog_content as blogContent,tb.blog_time as blogTime,tc.category_name as categoryName
-        FROM tb_blog tb,tb_category tc
-        where tb.blog_typeId=#{blogTypeid}
-        and tc.category_id=#{blogTypeid}
-        order by tb.blog_time desc
-    </select>
+<!--  <select id="queryAllBlogByTypeId" parameterType="java.lang.Integer" resultType="com.yycoder.blog.vo.BlogDetailVo">-->
+<!--        SELECT tb.blog_id as blogId,tb.blog_title as blogTitle,tb.blog_count as blogCount,-->
+<!--       tb.blog_content as blogContent,tb.blog_time as blogTime,tc.category_name as categoryName-->
+<!--        FROM tb_blog tb,tb_category tc-->
+<!--        where tb.blog_typeId=#{blogTypeid}-->
+<!--        and tc.category_id=#{blogTypeid}-->
+<!--        order by tb.blog_time desc-->
+<!--    </select>-->
 </mapper>

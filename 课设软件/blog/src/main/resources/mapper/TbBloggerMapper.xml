@@ -26,12 +26,12 @@
     from tb_blogger
 
   </select>
-  <select id="bloggerLogin" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"/>
-    from tb_blogger
-    where blogger_name = #{bloggerName,jdbcType=VARCHAR}
-  </select>
+<!--  <select id="bloggerLogin" parameterType="java.lang.String" resultMap="BaseResultMap">-->
+<!--    select-->
+<!--    <include refid="Base_Column_List"/>-->
+<!--    from tb_blogger-->
+<!--    where blogger_name = #{bloggerName,jdbcType=VARCHAR}-->
+<!--  </select>-->
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tb_blogger
     where blogger_id = #{bloggerId,jdbcType=INTEGER}

@@ -16,12 +16,12 @@
     from tb_tag
     where tag_id = #{tagId,jdbcType=INTEGER}
   </select>
-  <select id="queryAllTag"  resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from tb_tag
-    order by tb_tag.tag_time asc
-  </select>
+<!--  <select id="queryAllTag"  resultMap="BaseResultMap">-->
+<!--    select-->
+<!--    <include refid="Base_Column_List" />-->
+<!--    from tb_tag-->
+<!--    order by tb_tag.tag_time asc-->
+<!--  </select>-->
   <select id="queryAllTagByBlogId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select tt.tag_id, tt.tag_name, tt.tag_state, tt.tag_time
     from tb_tag tt,tb_blogtag tb

@@ -208,15 +208,53 @@ public class HomeController {
 }
 ```
 
-service层实现
+service层实现（主要方法）
+
+```java
+public class TbBlogServiceImpl implements TbBlogService {//获取博客信息
+    @Autowired(required = true)
+    private TbBlogMapper tbBlogMapper;//有关博客信息的操作dao层
+    @Autowired
+    private TbTagMapper tbTagMapper;//有关博客分类的dao层
+
+    @Override
+    public List<BlogDetailVo> queryAllBlogByTitle(String keyWord) {//按博客标题匹配搜索
+        List<BlogDetailVo> list=tbBlogMapper.queryAllBlogByTitle(keyWord);
+        for(BlogDetailVo bd:list){
+            bd.setTagList(tbTagMapper.queryAllTagByBlogId(bd.getBlogId()));
+        }
+        return list;
+    }
+
+    @Override
+    public List<BlogDetailVo> queryAllBlog() {//查询所有的博客信息
+        List<BlogDetailVo> list=tbBlogMapper.queryAllBlog();
+        for(int i=0;i<list.size();i++){
+        list.get(i).setTagList(tbTagMapper.queryAllTagByBlogId(list.get(i).getBlogId()));
+        }
+        return tbBlogMapper.queryAllBlog();
+    }
+}
+
+public class TbBlogCategoryServiceImpl implements TbCategoryService {
+
+    @Autowired
+    private TbCategoryMapper tbCategoryMapper;//处理分类数据的dao层
+    @Override
+    public List<TbCategory> selectAll() {
+        return tbCategoryMapper.selectAll();//调用dao代码实现博客分类查询
+    }
+}
 
 ```
 
-```
-
-（12）代码编写完毕，运行项目，打开浏览器查看效果。
+（12）编写相关前端HTML代码，等所有代码编写完毕无误后，点击运行项目，打开浏览器查看效果。
 
 ### 4.4 实现效果截图
+
+（1）个人博客系统首页
+
+（2）搜索查询功能实现
 
 ## 五、实验总结.
 
