@@ -19,15 +19,19 @@ import java.util.List;
 @Controller
 @RequestMapping("/blogHome")
 public class HomeController {
+
     @Autowired
     private TbBlogService tbBlogService;
+
     @Autowired
     private TbBloggerService tbBloggerService;
 
     @Autowired
     private TbCategoryService tbCategoryService;
+
     @Autowired
     private TbCommentService tbCommentService;
+
     @RequestMapping("/search")
     public String search(@RequestParam String keyWord, Model model){
         keyWord="%"+keyWord+"%";
@@ -43,6 +47,7 @@ public class HomeController {
         }
         return "content";
     }
+
     @RequestMapping("/home")
     public String home(Model model){
         TbBlogger blogger = tbBloggerService.selectAll();

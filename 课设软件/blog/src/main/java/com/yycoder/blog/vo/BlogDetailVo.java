@@ -2,12 +2,14 @@ package com.yycoder.blog.vo;
 
 import com.yycoder.blog.entity.TbTag;
 import lombok.Data;
+import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.List;
 
 @Data
+@ToString
 public class BlogDetailVo {
     private Integer blogId;
 

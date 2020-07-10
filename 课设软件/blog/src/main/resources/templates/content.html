@@ -2,8 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>content</title>
-
-    <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
@@ -24,8 +22,6 @@
                             <div class="text-right">
                                 <p  th:text="'时间：'+${#dates.format(blog.getBlogTime(),'yyyy-MM-dd HH:mm')}"/></p>
                                 <p  th:text="'阅读：'+${blog.getBlogCount()}+'  评论：'+${countList.get(blog.getBlogId()+'')}"/></p>
-
-
                             </div>
                         </li>
                     </tr>
@@ -34,10 +30,7 @@
         </div>
     </div>
 </div>
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>
