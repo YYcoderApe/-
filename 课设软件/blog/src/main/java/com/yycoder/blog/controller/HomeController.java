@@ -7,12 +7,11 @@ import com.yycoder.blog.service.TbBloggerService;
 import com.yycoder.blog.service.TbCategoryService;
 import com.yycoder.blog.service.TbCommentService;
 import com.yycoder.blog.vo.BlogDetailVo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,14 +19,14 @@ import java.util.List;
 @Controller
 @RequestMapping("/blogHome")
 public class HomeController {
-    @Resource
+    @Autowired
     private TbBlogService tbBlogService;
-    @Resource
+    @Autowired
     private TbBloggerService tbBloggerService;
 
-    @Resource
+    @Autowired
     private TbCategoryService tbCategoryService;
-    @Resource
+    @Autowired
     private TbCommentService tbCommentService;
     @RequestMapping("/search")
     public String search(@RequestParam String keyWord, Model model){

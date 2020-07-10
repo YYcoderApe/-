@@ -17,21 +17,21 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
 
-  <select id="queryAllTagByBlogId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from tb_blogtag
-    where blog_id = #{blogId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tb_blogtag
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+<!--  <select id="queryAllTagByBlogId" parameterType="java.lang.Integer" resultMap="BaseResultMap">-->
+<!--    select-->
+<!--    <include refid="Base_Column_List" />-->
+<!--    from tb_blogtag-->
+<!--    where blog_id = #{blogId,jdbcType=INTEGER}-->
+<!--  </select>-->
+<!--  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">-->
+<!--    delete from tb_blogtag-->
+<!--    where id = #{id,jdbcType=INTEGER}-->
+<!--  </delete>-->
 
-  <delete id="deleteBlogtagByBolgId" parameterType="java.lang.Integer">
-    delete from tb_blogtag
-    where blog_id = #{blogId,jdbcType=INTEGER}
-  </delete>
+<!--  <delete id="deleteBlogtagByBolgId" parameterType="java.lang.Integer">-->
+<!--    delete from tb_blogtag-->
+<!--    where blog_id = #{blogId,jdbcType=INTEGER}-->
+<!--  </delete>-->
   <insert id="insert" parameterType="com.yycoder.blog.entity.TbBlogtag">
     insert into tb_blogtag (id, blog_id, tag_id, 
       blog_tag_time)

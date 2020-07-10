@@ -1,20 +1,21 @@
-server:
-  port: 8080
-  servlet:
-    context-path: /
-spring:
-  mvc:
-    view:
-      prefix: /templates/
-      suffix: .html
-    servlet:
-      path: /
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    name: my-blog-datasource
-    url: jdbc:mysql://localhost:3306/my_blog?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
-    username: root
-    password: 123456
-
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
+#server:
+#  port: 8080
+#  servlet:
+#    context-path: /
+#
+#spring:
+#  mvc:
+#    view:
+#      prefix: /templates/
+#      suffix: .html
+#    servlet:
+#      path: /
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    name: my-blog-datasource
+#    url: jdbc:mysql://localhost:3306/my_blog?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+#    username: root
+#    password: 123456
+#
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
