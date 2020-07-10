@@ -9,13 +9,13 @@ import java.util.List;
 @Component
 public interface TbBlogMapper extends BaseMapper<TbBlog> {
 
-    int updateByPrimaryKeyWithBLOBs(TbBlog record);
-
-    BlogDetailVo queryBlogById(Integer id);
-
+//    int updateByPrimaryKeyWithBLOBs(TbBlog record);
+//
+//    BlogDetailVo queryBlogById(Integer id);
+//
     List<BlogDetailVo> queryAllBlog();
 
     List<BlogDetailVo> queryAllBlogByTitle(String keyWord);
-
-    List<BlogDetailVo> queryAllBlogByTypeId(int blogTypeid);
+//
+//    List<BlogDetailVo> queryAllBlogByTypeId(int blogTypeid);
 }

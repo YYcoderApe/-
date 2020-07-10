@@ -9,7 +9,7 @@ import java.util.List;
 @Component
 public interface TbTagMapper extends BaseMapper<TbTag>{
 
-    List<TbTag> queryAllTag();
+//    List<TbTag> queryAllTag();
 
     List<TbTag> queryAllTagByBlogId(@Param("blogId") int blogId);
 }
