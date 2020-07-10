@@ -155,6 +155,65 @@
 
 （11）编写相应的controller代码、service层代码以及前端代码，通过controller运用springMvc的访问方式与前端代码进行数据的获取与交互，实现整个web项目功能的编写实现。
 
+**Controller层代码**
+
+```java
+@Controller
+@RequestMapping("/blogHome")
+public class HomeController {
+    @Resource
+    private TbBlogService tbBlogService;//处理博客信息的逻辑层
+    @Resource
+    private TbBloggerService tbBloggerService;//处理博主信息的逻辑层
+    @Resource
+    private TbCategoryService tbCategoryService;//处理博客分类的逻辑层
+    @Resource
+    private TbCommentService tbCommentService;//处理评论的逻辑层
+    
+    @RequestMapping("/search")//实现搜索匹配
+    public String search(@RequestParam String keyWord, Model model){
+        keyWord="%"+keyWord+"%";
+        List<BlogDetailVo> detailVoList = tbBlogService.queryAllBlogByTitle(keyWord);
+        model.addAttribute("blogList",detailVoList);
+        HashMap<String,Object> map = new HashMap<>();
+        for(BlogDetailVo b:detailVoList){
+            map.put(b.getBlogId()+"",tbCommentService.getCommentCount(b.getBlogId()));
+        }
+        model.addAttribute("countList",map);
+        if (detailVoList.isEmpty()){
+            return "blank";
+        }
+        return "content";//跳转到content.html
+    }
+    @RequestMapping("/home")//博客首页
+    public String home(Model model){
+        TbBlogger blogger = tbBloggerService.selectAll();
+        model.addAttribute("blogger", blogger);
+        List<TbCategory> categoryList = tbCategoryService.selectAll();
+        model.addAttribute("categoryList",categoryList);
+        return "home";//跳转到主页面home.html
+    }
+
+    @RequestMapping("/toContent")//博客数据的显示
+    public String toContent(Model model){
+        List<BlogDetailVo> tbBlogList = tbBlogService.queryAllBlog();
+        model.addAttribute("blogList",tbBlogList);
+        HashMap<String,Object> map = new HashMap<>();
+        for(BlogDetailVo b:tbBlogList){
+            map.put(b.getBlogId()+"",tbCommentService.getCommentCount(b.getBlogId()));
+        }
+        model.addAttribute("countList",map);
+        return "content";//跳转到content.html
+    }
+}
+```
+
+service层实现
+
+```
+
+```
+
 （12）代码编写完毕，运行项目，打开浏览器查看效果。
 
 ### 4.4 实现效果截图

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yycoder.blog.dao.TbBlogtagMapper">
+  <resultMap id="BaseResultMap" type="com.yycoder.blog.entity.TbBlogtag">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="blog_id" jdbcType="INTEGER" property="blogId" />
+    <result column="tag_id" jdbcType="INTEGER" property="tagId" />
+    <result column="blog_tag_time" jdbcType="TIMESTAMP" property="blogTagTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, blog_id, tag_id, blog_tag_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_blogtag
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="queryAllTagByBlogId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_blogtag
+    where blog_id = #{blogId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_blogtag
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <delete id="deleteBlogtagByBolgId" parameterType="java.lang.Integer">
+    delete from tb_blogtag
+    where blog_id = #{blogId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yycoder.blog.entity.TbBlogtag">
+    insert into tb_blogtag (id, blog_id, tag_id, 
+      blog_tag_time)
+    values (#{id,jdbcType=INTEGER}, #{blogId,jdbcType=INTEGER}, #{tagId,jdbcType=INTEGER}, 
+      #{blogTagTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yycoder.blog.entity.TbBlogtag">
+    insert into tb_blogtag
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="blogId != null">
+        blog_id,
+      </if>
+      <if test="tagId != null">
+        tag_id,
+      </if>
+      <if test="blogTagTime != null">
+        blog_tag_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="blogId != null">
+        #{blogId,jdbcType=INTEGER},
+      </if>
+      <if test="tagId != null">
+        #{tagId,jdbcType=INTEGER},
+      </if>
+      <if test="blogTagTime != null">
+        #{blogTagTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yycoder.blog.entity.TbBlogtag">
+    update tb_blogtag
+    <set>
+      <if test="blogId != null">
+        blog_id = #{blogId,jdbcType=INTEGER},
+      </if>
+      <if test="tagId != null">
+        tag_id = #{tagId,jdbcType=INTEGER},
+      </if>
+      <if test="blogTagTime != null">
+        blog_tag_time = #{blogTagTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yycoder.blog.entity.TbBlogtag">
+    update tb_blogtag
+    set blog_id = #{blogId,jdbcType=INTEGER},
+      tag_id = #{tagId,jdbcType=INTEGER},
+      blog_tag_time = #{blogTagTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

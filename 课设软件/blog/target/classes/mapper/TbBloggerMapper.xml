@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yycoder.blog.dao.TbBloggerMapper">
+  <resultMap id="BaseResultMap" type="com.yycoder.blog.entity.TbBlogger">
+    <id column="blogger_id" jdbcType="INTEGER" property="bloggerId" />
+    <result column="blogger_name" jdbcType="VARCHAR" property="bloggerName" />
+    <result column="blogger_password" jdbcType="VARCHAR" property="bloggerPassword" />
+    <result column="blogger_introuductin" jdbcType="VARCHAR" property="bloggerIntrouductin" />
+    <result column="blogger_email" jdbcType="VARCHAR" property="bloggerEmail" />
+    <result column="blogger_nickname" jdbcType="VARCHAR" property="bloggerNickname" />
+    <result column="blogger_phone" jdbcType="VARCHAR" property="bloggerPhone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    blogger_id, blogger_name, blogger_password, blogger_introuductin, blogger_email, 
+    blogger_nickname, blogger_phone
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_blogger
+    where blogger_id = #{bloggerId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_blogger
+
+  </select>
+  <select id="bloggerLogin" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from tb_blogger
+    where blogger_name = #{bloggerName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_blogger
+    where blogger_id = #{bloggerId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yycoder.blog.entity.TbBlogger">
+    insert into tb_blogger (blogger_id, blogger_name, blogger_password, 
+      blogger_introuductin, blogger_email, blogger_nickname, 
+      blogger_phone)
+    values (#{bloggerId,jdbcType=INTEGER}, #{bloggerName,jdbcType=VARCHAR}, #{bloggerPassword,jdbcType=VARCHAR}, 
+      #{bloggerIntrouductin,jdbcType=VARCHAR}, #{bloggerEmail,jdbcType=VARCHAR}, #{bloggerNickname,jdbcType=VARCHAR}, 
+      #{bloggerPhone,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yycoder.blog.entity.TbBlogger">
+    insert into tb_blogger
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bloggerId != null">
+        blogger_id,
+      </if>
+      <if test="bloggerName != null">
+        blogger_name,
+      </if>
+      <if test="bloggerPassword != null">
+        blogger_password,
+      </if>
+      <if test="bloggerIntrouductin != null">
+        blogger_introuductin,
+      </if>
+      <if test="bloggerEmail != null">
+        blogger_email,
+      </if>
+      <if test="bloggerNickname != null">
+        blogger_nickname,
+      </if>
+      <if test="bloggerPhone != null">
+        blogger_phone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bloggerId != null">
+        #{bloggerId,jdbcType=INTEGER},
+      </if>
+      <if test="bloggerName != null">
+        #{bloggerName,jdbcType=VARCHAR},
+      </if>
+      <if test="bloggerPassword != null">
+        #{bloggerPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="bloggerIntrouductin != null">
+        #{bloggerIntrouductin,jdbcType=VARCHAR},
+      </if>
+      <if test="bloggerEmail != null">
+        #{bloggerEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="bloggerNickname != null">
+        #{bloggerNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="bloggerPhone != null">
+        #{bloggerPhone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yycoder.blog.entity.TbBlogger">
+    update tb_blogger
+    <set>
+      <if test="bloggerName != null">
+        blogger_name = #{bloggerName,jdbcType=VARCHAR},
+      </if>
+      <if test="bloggerPassword != null">
+        blogger_password = #{bloggerPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="bloggerIntrouductin != null">
+        blogger_introuductin = #{bloggerIntrouductin,jdbcType=VARCHAR},
+      </if>
+      <if test="bloggerEmail != null">
+        blogger_email = #{bloggerEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="bloggerNickname != null">
+        blogger_nickname = #{bloggerNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="bloggerPhone != null">
+        blogger_phone = #{bloggerPhone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where blogger_id = #{bloggerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yycoder.blog.entity.TbBlogger">
+    update tb_blogger
+    set blogger_name = #{bloggerName,jdbcType=VARCHAR},
+      blogger_password = #{bloggerPassword,jdbcType=VARCHAR},
+      blogger_introuductin = #{bloggerIntrouductin,jdbcType=VARCHAR},
+      blogger_email = #{bloggerEmail,jdbcType=VARCHAR},
+      blogger_nickname = #{bloggerNickname,jdbcType=VARCHAR},
+      blogger_phone = #{bloggerPhone,jdbcType=VARCHAR}
+    where blogger_id = #{bloggerId,jdbcType=INTEGER}
+  </update>
+</mapper>
