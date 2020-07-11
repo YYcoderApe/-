@@ -22,7 +22,7 @@
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-body">
-            <form class="form-horizontal" name="userForm" th:action="" method="post">
+            <form class="form-horizontal" name="userForm"  th:action="@{/user/login}" method="post">
                 <div type="hidden" id="blogId" name="blogId" th:value="${blogId}"></div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">用户：</label>

@@ -15,7 +15,8 @@ public class TbBloggerServiceImpl implements TbBloggerService {
     @Override
     public TbBlogger login(String bloggerName, String bloggerPassword) {
         TbBlogger tbBlogger = tbBloggerMapper.bloggerLogin(bloggerName);
-        if(tbBlogger!=null &&(tbBlogger.getBloggerPassword().equals(bloggerPassword))){
+        if(tbBlogger!=null && bloggerPassword.equals(tbBlogger.getBloggerPassword())){
+            System.out.println("-------------");
             return tbBlogger;
         }
         return null;

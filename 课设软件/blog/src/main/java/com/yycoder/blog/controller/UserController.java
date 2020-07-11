@@ -26,7 +26,7 @@ public class UserController {
     private TbUserService tbUserService;
     @RequestMapping("/toRegister")
     public String toRegister(Model model,@RequestParam Integer blogId) {
-        model.addAttribute("blogId",blogId);
+//        model.addAttribute("blogId",blogId);
         return "userRegister";
     }
     @RequestMapping("/Register")
