@@ -10,11 +10,9 @@ import java.util.List;
 @Component
 public interface TbCommentMapper extends BaseMapper<TbComment>{
 
-//    List<CommentsVo> getCommentsVoList();
-//
   List<CommentsVo> getCommentsList(@Param("blogId") int blogId);
 
     Integer getCommentCount(@Param("blogId") Integer blogId);
 
-
+    List<CommentsVo> getCommentsVoList();
 }

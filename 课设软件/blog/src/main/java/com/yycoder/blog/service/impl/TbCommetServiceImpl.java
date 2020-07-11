@@ -27,4 +27,14 @@ public class TbCommetServiceImpl implements TbCommentService {
     public Integer addComment(TbComment tbComment) {
         return tbCommentMapper.insert(tbComment);
     }
+    @Override
+    public List<CommentsVo> getCommentsVoList() {
+        return tbCommentMapper.getCommentsVoList();
+
+    }
+
+    @Override
+    public Integer deleteComment(Integer CommentId) {
+        return tbCommentMapper.deleteByPrimaryKey(CommentId);
+    }
 }

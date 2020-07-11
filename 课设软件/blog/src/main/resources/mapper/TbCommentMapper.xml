@@ -31,14 +31,14 @@
     delete from tb_comment
     where comment_id = #{commentId,jdbcType=INTEGER}
   </delete>
-<!--  <select id="getCommentsVoList" resultType="com.yycoder.blog.vo.CommentsVo">-->
-<!--    select tc.comment_id as commentId,tc.comment_time as commentTime,tc.comment_content as commentContent,-->
-<!--            tu.user_id as userId,tu.user_name as userName,tu.user_email as userEmail,tb.blog_id as blogId,-->
-<!--            tb.blog_title as blogTitle-->
-<!--    from tb_comment tc-->
-<!--    left join tb_blog tb on tb.blog_id=tc.blog_id-->
-<!--    left join tb_user tu on tu.user_id=tc.user_id-->
-<!--  </select>-->
+  <select id="getCommentsVoList" resultType="com.yycoder.blog.vo.CommentsVo">
+    select tc.comment_id as commentId,tc.comment_time as commentTime,tc.comment_content as commentContent,
+            tu.user_id as userId,tu.user_name as userName,tu.user_email as userEmail,tb.blog_id as blogId,
+            tb.blog_title as blogTitle
+    from tb_comment tc
+    left join tb_blog tb on tb.blog_id=tc.blog_id
+    left join tb_user tu on tu.user_id=tc.user_id
+  </select>
 
   <select id="getCommentCount"  parameterType="Integer" resultType="Integer">
     select count(*)

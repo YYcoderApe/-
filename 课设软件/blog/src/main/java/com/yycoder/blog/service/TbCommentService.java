@@ -11,4 +11,8 @@ public interface TbCommentService {
     List<CommentsVo> getCommentsList(Integer blogId);
 
     Integer addComment(TbComment tbComment);
+
+    List<CommentsVo> getCommentsVoList();
+
+    Integer deleteComment(Integer id);
 }
