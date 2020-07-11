@@ -1,14 +1,34 @@
 package com.yycoder.blog;
 
+import com.yycoder.blog.service.TbBlogService;
+import com.yycoder.blog.service.TbBlogtagService;
+import com.yycoder.blog.service.TbCategoryService;
+import com.yycoder.blog.service.TbTagService;
+import com.yycoder.blog.vo.BlogDetailVo;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 @SpringBootTest
 class BlogApplicationTests {
+    @Autowired
+    private TbBlogService tbBlogService;
 
+    @Autowired
+    private TbCategoryService tbCategoryService;
+
+    @Autowired
+    private TbTagService tbTagService;
+
+    @Autowired
+    private TbBlogtagService tbBlogtagService;
     @Test
-    void contextLoads() {
-
+    void testBlogSearch() {
+        List<BlogDetailVo> list = tbBlogService.queryAllBlogByTitle("spring");
+        Assert.assertNotNull(list);
     }
 
 }
