@@ -1,6 +1,7 @@
 package com.yycoder.blog.service.impl;
 
 import com.yycoder.blog.dao.TbCommentMapper;
+import com.yycoder.blog.entity.TbComment;
 import com.yycoder.blog.service.TbCommentService;
 import com.yycoder.blog.vo.CommentsVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,10 @@ public class TbCommetServiceImpl implements TbCommentService {
     @Override
     public List<CommentsVo> getCommentsList(Integer blogId) {
         return tbCommentMapper.getCommentsList(blogId);
+    }
+
+    @Override
+    public Integer addComment(TbComment tbComment) {
+        return tbCommentMapper.insert(tbComment);
     }
 }

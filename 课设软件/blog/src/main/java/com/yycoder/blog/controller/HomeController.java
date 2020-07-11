@@ -1,9 +1,6 @@
 package com.yycoder.blog.controller;
 
-import com.yycoder.blog.entity.TbBlog;
-import com.yycoder.blog.entity.TbBlogger;
-import com.yycoder.blog.entity.TbCategory;
-import com.yycoder.blog.entity.TbUser;
+import com.yycoder.blog.entity.*;
 import com.yycoder.blog.service.TbBlogService;
 import com.yycoder.blog.service.TbBloggerService;
 import com.yycoder.blog.service.TbCategoryService;
@@ -16,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -108,5 +107,19 @@ public class HomeController {
         model.addAttribute("tbUser",tbUser);
         return "blog";
     }
-
+    @RequestMapping("/writeComment")
+    public String writeComment(Model model, TbComment tbComment){
+        tbComment.setCommentTime(new Date());
+        tbCommentService.addComment(tbComment);
+        BlogDetailVo tbBlog = tbBlogService.queryBlogById(tbComment.getBlogId());
+        model.addAttribute("blog",tbBlog);
+        List<CommentsVo> commentsList = tbCommentService.getCommentsList(tbBlog.getBlogId());
+        model.addAttribute("commentsList",commentsList);
+        int count = tbCommentService.getCommentCount(tbBlog.getBlogId());
+        model.addAttribute("count",count);
+        TbUser tbUser = new TbUser();
+        tbUser.setUserId(1);
+        model.addAttribute("tbUser",tbUser);
+        return "blog";
+    }
 }
