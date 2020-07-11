@@ -63,4 +63,14 @@ public class TbBlogServiceImpl implements TbBlogService {
         blog.setTagList(list);
         return blog;
     }
+    @Override
+    public Integer addBlog(TbBlog tbBlog) {
+        return tbBlogMapper.insert(tbBlog);
+    }
+
+
+    @Override
+    public Integer deleteBlog(Integer id) {
+        return tbBlogMapper.deleteByPrimaryKey(id);
+    }
 }

@@ -2,15 +2,20 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/yycoder/blog/service/impl/TbBlogtagServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/yycoder/blog/service/impl/TbTagServiceImpl.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/application.properties" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/blank.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/blog.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/blogManger.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/bloggerInfo.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/bloggerInfoUpdate.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/content.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/login.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/reWriteBlog.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/userLogin.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/userRegister.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/writeBlog.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/test/java/com.yycoder.blog/MyGenerator.java" charset="ISO-8859-1" />
   </component>
 </project>

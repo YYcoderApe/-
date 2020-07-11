@@ -7,8 +7,8 @@ import java.util.List;
 
 @Component
 public interface TbBlogtagMapper extends BaseMapper<TbBlogtag>{
-//
-//    int deleteBlogtagByBolgId(int blogId);
+    Integer deleteBlogtagByBolgId(Integer blogId);
+
 //
 //    List<TbBlogtag> queryAllTagByBlogId(int blogId);
 }

@@ -12,11 +12,15 @@ public interface TbBlogService {
 
     List<BlogDetailVo> queryAllBlogByTypeId(Integer typeId);
 
-    Integer updateBlog(TbBlog tbBlog);
-
     TbBlog queryBlog(Integer id);
 
     BlogDetailVo queryBlogById(Integer blogId);
+
+    Integer updateBlog(TbBlog tbBlog);
+
+    Integer addBlog(TbBlog tbBlog);
+
+    Integer deleteBlog(Integer id);
 }
 
 

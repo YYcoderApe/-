@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>写博客</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/summernote/0.8.10/summernote.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/summernote/0.8.10/summernote.js"></script>
+    <script src="https://cdn.bootcss.com/summernote/0.8.10/lang/summernote-zh-CN.js"></script>
+</head>
+
+
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h3>
+                写博客
+            </h3>
+            <form class="form-horizontal"  action="" name="blogForm"  >
+                <div class="form-group">
+                    <label for="blogTitle" class="col-sm-2 control-label">TITIE：</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="blogTitle" name="blogTitle"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tagId" class="col-sm-2 control-label">博客标签：</label>
+                    <div class="col-sm-2">
+                        <select class="form-control" id="tagId" name="tagId">
+                            <tr th:each="tag:${tagList}" varStatus="status">
+                                <option th:value="${tag.getTagId()}">
+                                    <div th:text="${tag.getTagName()}"></div>
+                                </option>
+                            </tr>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="blogTypeid" class="col-sm-2 control-label">博客类别：</label>
+                    <div class="col-sm-2">
+                        <select class="form-control" id="blogTypeid" name="blogTypeid">
+                            <tr th:each="blogType:${tbCategoryList}" varStatus="status">
+                                <option th:value="${blogType.getCategoryId()}">
+                                    <div th:text="${blogType.getCategoryName()}"></div>
+                                </option>
+                            </tr>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label  class="col-sm-2 control-label">内容：</label>
+                    <div class="col-sm-8">
+                        <textarea  id="summernote" name="blogContent"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-2">
+                        <input type="button" value="提交" onclick="writeBlog()">
+                        <input type="button" value="保存" onclick="saveWriteBlog()">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function writeBlog() {
+        var form = document.forms[0];
+        var curWwwPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = curWwwPath.indexOf(pathName);
+
+        var localhostPahth = curWwwPath.substring(0, pos);
+        form.action = localhostPahth+"/writeBlog";
+        form.method = "post";
+        form.submit();
+    }
+    function saveWriteBlog() {
+        var form = document.forms[0];
+        var curWwwPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = curWwwPath.indexOf(pathName);
+        var localhostPahth = curWwwPath.substring(0, pos);
+        var form = document.forms[0];
+        form.action = localhostPahth+"/saveWriteBlog";
+        form.method = "post";
+        form.submit();
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $('#summernote').summernote({
+            height: 400,
+            minHeight: 400,
+            maxHeight: 400,
+            placeholder: "请输入内容",
+            lang: 'zh-CN',
+            dialogsFade: true,  //模态框淡入淡出  
+            toolbar: [
+                ['history', ['undo', 'redo']],
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['fontname', ['fontname']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link']],
+                ['view', ['fullscreen', 'help']],
+            ]
+        });
+    });
+
+</script>  
+</body>
+</html>
