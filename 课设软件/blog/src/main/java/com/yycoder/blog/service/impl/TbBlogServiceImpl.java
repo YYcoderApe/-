@@ -2,6 +2,7 @@ package com.yycoder.blog.service.impl;
 
 import com.yycoder.blog.dao.TbBlogMapper;
 import com.yycoder.blog.dao.TbTagMapper;
+import com.yycoder.blog.entity.TbBlog;
 import com.yycoder.blog.service.TbBlogService;
 import com.yycoder.blog.vo.BlogDetailVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,25 @@ public class TbBlogServiceImpl implements TbBlogService {
             list.get(i).setTagList(tbTagMapper.queryAllTagByBlogId(list.get(i).getBlogId()));
         }
         return tbBlogMapper.queryAllBlog();
+    }
+
+    @Override
+    public List<BlogDetailVo> queryAllBlogByTypeId(Integer typeId) {
+        List<BlogDetailVo> list=tbBlogMapper.queryAllBlogByTypeId(typeId);
+
+        for(BlogDetailVo bd:list){
+            bd.setTagList(tbTagMapper.queryAllTagByBlogId(bd.getBlogId()));
+        }
+        return list;
+    }
+
+    @Override
+    public Integer updateBlog(TbBlog tbBlog) {
+        return tbBlogMapper.updateByPrimaryKey(tbBlog);
+    }
+
+    @Override
+    public TbBlog queryBlog(Integer id) {
+        return tbBlogMapper.selectByPrimaryKey(id);
     }
 }
