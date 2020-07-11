@@ -1,5 +1,9 @@
 package com.yycoder.blog.dao;
 
+
+import org.springframework.stereotype.Component;
+
+@Component
 public interface BaseMapper<T> {
     int deleteByPrimaryKey(Integer id);
 

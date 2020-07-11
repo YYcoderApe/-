@@ -4,6 +4,8 @@ import com.yycoder.blog.entity.TbBlogger;
 import com.yycoder.blog.service.TbBloggerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -38,5 +40,25 @@ public class BloggerController {
     public String quit(HttpSession session){
         session.setAttribute("blogger",null);
         return "redirect:/blogger/toLogin";
+    }
+    @RequestMapping("/bloggerInfo")
+    public String userInfo(Model model){
+        model.addAttribute("blogger",tbBloggerService.selectAll());
+        System.out.println(tbBloggerService.selectAll().getBloggerName());
+        return "bloggerInfo";
+    }
+
+    @RequestMapping("/toUpdateBloggerInfo")
+    public String toUpdateBloggerInfo(Model model){
+        TbBlogger blogger = tbBloggerService.selectAll();
+        System.out.println(tbBloggerService.selectAll().getBloggerName());
+        model.addAttribute("blogger",blogger);
+        return "bloggerInfoUpdate";
+    }
+    @RequestMapping("/updateBloggerInfo")
+    public String updateBloggerInfo(@ModelAttribute TbBlogger tbBlogger){
+        tbBloggerService.updateBloggerInfo(tbBlogger);
+        System.out.println(tbBloggerService.selectAll());
+        return "redirect:/blogger/bloggerInfo";
     }
 }

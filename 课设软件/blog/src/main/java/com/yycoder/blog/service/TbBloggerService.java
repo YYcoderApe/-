@@ -7,4 +7,6 @@ public interface TbBloggerService {
     TbBlogger selectAll();
 
     TbBlogger login(String bloggerName, String bloggerPassword);
+
+    Integer updateBloggerInfo(TbBlogger tbBlogger);
 }

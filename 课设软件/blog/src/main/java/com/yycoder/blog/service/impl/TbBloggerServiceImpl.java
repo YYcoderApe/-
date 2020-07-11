@@ -28,4 +28,11 @@ public class TbBloggerServiceImpl implements TbBloggerService {
         return tbBloggerMapper.selectAll();
     }
 
+    @Override
+    public Integer updateBloggerInfo(TbBlogger tbBlogger) {
+        TbBlogger blogger = tbBloggerMapper.selectAll();
+        tbBloggerMapper.updateByPrimaryKey(tbBlogger);
+        System.out.println(blogger.getBloggerName()+blogger.getBloggerIntrouductin());
+        return tbBloggerMapper.updateByPrimaryKey(tbBlogger);
+    }
 }

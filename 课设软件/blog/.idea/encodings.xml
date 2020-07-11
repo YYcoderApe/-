@@ -5,6 +5,8 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/application.properties" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/blank.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/blog.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/bloggerInfo.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/bloggerInfoUpdate.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/content.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/login.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/userLogin.html" charset="GBK" />

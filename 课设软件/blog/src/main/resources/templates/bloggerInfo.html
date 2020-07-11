@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>个人信息</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div>
+                <br/>  <br/>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            用户名：<div th:text="${blogger.getBloggerName()}"></div>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        昵称：<div th:text="${blogger.getBloggerNickname()}"></div>
+                    </div>
+                    <div class="panel-body">
+                        个人介绍：<div th:text="${blogger.getBloggerIntrouductin()}"></div>
+                    </div>
+                    <div class="panel-body">
+                        联系方式：<div th:text="${blogger.getBloggerPhone()}"></div>
+                    </div>
+                    <div class="panel-footer">
+                        个人邮箱：<div th:text="${blogger.getBloggerEmail()}"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 column">
+                        <a class="btn btn-primary" th:href="@{/blogger/toUpdateBloggerInfo}">修改</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
