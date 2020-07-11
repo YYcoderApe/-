@@ -60,9 +60,9 @@ public class BlogController {
     }
 
     @RequestMapping("/saveWriteBlog")
-    public String saveWriteBlog(TbBlog tbblog){
-        tbblog.setBlogTime(new Date());
-        tbBlogService.addBlog(tbblog);
+    public String saveWriteBlog(TbBlog tbBlog){
+        tbBlog.setBlogTime(new Date());
+        tbBlogService.addBlog(tbBlog);
         return "background";
     }
 

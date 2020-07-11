@@ -17,4 +17,24 @@ public class TbBlogCategoryServiceImpl implements TbCategoryService {
     public List<TbCategory> selectAll() {
         return tbCategoryMapper.selectAll();
     }
+    @Override
+    public Integer addCategory(TbCategory tbCategory) {
+        return tbCategoryMapper.insert(tbCategory);
+    }
+
+    @Override
+    public Integer deleteCategory(int id) {
+        return tbCategoryMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public Integer updateCategory(TbCategory tbCategory) {
+        return tbCategoryMapper.updateByPrimaryKeySelective(tbCategory);
+    }
+
+    @Override
+    public TbCategory selectById(int id) {
+        return tbCategoryMapper.selectByPrimaryKey(id);
+    }
+
 }
