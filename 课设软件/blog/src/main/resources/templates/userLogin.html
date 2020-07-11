@@ -19,56 +19,55 @@
     </style>
 </head>
 <body>
-用户登录
-<!--<div class="container">-->
-<!--    <div class="panel panel-default">-->
-<!--        <div class="panel-body">-->
-<!--            <form class="form-horizontal" name="userForm" th:action="" method="post">-->
-<!--                <div type="hidden" id="blogId" name="blogId" th:value="${blogId}"></div>-->
-<!--                <div class="form-group">-->
-<!--                    <label class="col-sm-2 control-label">用户：</label>-->
-<!--                    <div class="col-sm-9">-->
-<!--                        <input type="text" class="form-control" name="userName" required="true"/>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label class="col-sm-2 control-label">密码：</label>-->
-<!--                    <div class="col-sm-9">-->
-<!--                        <input type="password" class="form-control" name="userPassword" required="true"/>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <div class="col-sm-offset-2 col-sm-2">-->
-<!--                        <input type="button" class="btn btn-default" value="登录" onclick="userLogin()">-->
-<!--                        <input type="button" class="btn btn-default" value="注册" onclick="userRegister()">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </form>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<script type="text/javascript">-->
-<!--    function userLogin() {-->
-<!--        var form = document.forms[0];-->
-<!--        var curWwwPath = window.document.location.href;-->
-<!--        var pathName = window.document.location.pathname;-->
-<!--        var pos = curWwwPath.indexOf(pathName);-->
-<!--        var localhostPahth = curWwwPath.substring(0, pos);-->
-<!--        form.action = localhostPahth + '/user/login';-->
-<!--        form.method = "post";-->
-<!--        form.submit();-->
-<!--    }-->
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form class="form-horizontal" name="userForm" th:action="" method="post">
+                <div type="hidden" id="blogId" name="blogId" th:value="${blogId}"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">用户：</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="userName" required="true"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">密码：</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" name="userPassword" required="true"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-2">
+                        <input type="button" class="btn btn-default" value="登录" onclick="userLogin()">
+                        <input type="button" class="btn btn-default" value="注册" onclick="userRegister()">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function userLogin() {
+        var form = document.forms[0];
+        var curWwwPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = curWwwPath.indexOf(pathName);
+        var localhostPahth = curWwwPath.substring(0, pos);
+        form.action = localhostPahth + '/user/login';
+        form.method = "post";
+        form.submit();
+    }
 
-<!--    function userRegister() {-->
-<!--        var form = document.forms[0];-->
-<!--        var curWwwPath = window.document.location.href;-->
-<!--        var pathName = window.document.location.pathname;-->
-<!--        var pos = curWwwPath.indexOf(pathName);-->
-<!--        var localhostPahth = curWwwPath.substring(0, pos);-->
-<!--        form.action = localhostPahth + '/user/toRegister';-->
-<!--        form.method = "post";-->
-<!--        form.submit();-->
-<!--    }-->
-<!--</script>-->
+    function userRegister() {
+        var form = document.forms[0];
+        var curWwwPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = curWwwPath.indexOf(pathName);
+        var localhostPahth = curWwwPath.substring(0, pos);
+        form.action = localhostPahth + '/user/toRegister';
+        form.method = "post";
+        form.submit();
+    }
+</script>
 </body>
 </html>

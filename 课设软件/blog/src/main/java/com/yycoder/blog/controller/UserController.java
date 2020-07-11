@@ -18,12 +18,12 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
-    private TbUserService  tbUserService;
     @Autowired
     private TbBlogService tbBlogService;
     @Autowired
     private TbCommentService tbCommentService;
-
+    @Autowired
+    private TbUserService tbUserService;
     @RequestMapping("/toRegister")
     public String toRegister(Model model,@RequestParam Integer blogId) {
         model.addAttribute("blogId",blogId);

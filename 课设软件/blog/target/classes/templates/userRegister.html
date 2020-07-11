@@ -1,83 +1,83 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <title>登陆</title>-->
-<!--    &lt;!&ndash; 新 Bootstrap 核心 CSS 文件 &ndash;&gt;-->
-<!--    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
-<!--    <style>-->
-<!--        .container{-->
-<!--            text-align: center;-->
-<!--            background-color: #fff;-->
-<!--            border-radius: 30px;-->
-<!--            width: 500px;-->
-<!--            height: 300px;-->
-<!--            position: absolute;-->
-<!--            left: 50%;-->
-<!--            top: 50%;-->
-<!--            transform: translate(-50%,-50%);-->
-<!--        }-->
-<!--    </style>-->
-<!--</head>-->
-<!--<body>-->
-<!--<div class="container">-->
-<!--    <div class="panel panel-default" >-->
-<!--        <div class="panel-body">-->
-<!--            <form class="form-horizontal" role="form" th:action="" method="post" >-->
-<!--                <div type="hidden" name="blogId" th:value="${blogId}"></div>-->
-<!--                <div class="form-group">-->
-<!--                    <label class="col-sm-2 control-label">用户：</label>-->
-<!--                    <div class="col-sm-9">-->
-<!--                        <input type="text" class="form-control" name="userName" required="true"/>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label class="col-sm-2 control-label">密码：</label>-->
-<!--                    <div class="col-sm-9">-->
-<!--                        <input type="password" class="form-control" name="userPassword" required="true"/>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label class="col-sm-2 control-label">密码：</label>-->
-<!--                    <div class="col-sm-9">-->
-<!--                        <input type="password" class="form-control" name="userPwd" required="true"/>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label class="col-sm-2 control-label">邮箱：</label>-->
-<!--                    <div class="col-sm-9">-->
-<!--                        <input type="text" class="form-control" name="userEmail" required="true"/>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label class="col-sm-2 control-label">联系方式：</label>-->
-<!--                    <div class="col-sm-9">-->
-<!--                        <input type="text" class="form-control" name="userPhone" required="true"/>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <div class=" col-sm-10">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <div class=" col-sm-10">-->
-<!--                        <input type="button" class="btn btn-default" value="注册" onclick="userRegister()">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </form>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<script type="text/javascript">-->
-<!--    function userRegister() {-->
-<!--        var form = document.forms[0];-->
-<!--        var curWwwPath = window.document.location.href;-->
-<!--        var pathName = window.document.location.pathname;-->
-<!--        var pos = curWwwPath.indexOf(pathName);-->
-<!--        var localhostPahth = curWwwPath.substring(0, pos);-->
-<!--        form.action = localhostPahth +'/user/toRegister';-->
-<!--        form.method = "post";-->
-<!--        form.submit();-->
-<!--    }-->
-<!--</script>-->
-<!--</body>-->
-<!--</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>登陆</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+        .container{
+            text-align: center;
+            background-color: #fff;
+            border-radius: 30px;
+            width: 500px;
+            height: 300px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-default" >
+        <div class="panel-body">
+            <form class="form-horizontal" role="form" th:action="" method="post" >
+                <div type="hidden" name="blogId" th:value="${blogId}"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">用户：</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="userName" required="true"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">密码：</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" name="userPassword" required="true"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">密码：</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" name="userPwd" required="true"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">邮箱：</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="userEmail" required="true"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">联系方式：</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="userPhone" required="true"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class=" col-sm-10">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class=" col-sm-10">
+                        <input type="button" class="btn btn-default" value="注册" onclick="userRegister()">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function userRegister() {
+        var form = document.forms[0];
+        var curWwwPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = curWwwPath.indexOf(pathName);
+        var localhostPahth = curWwwPath.substring(0, pos);
+        form.action = localhostPahth +'/user/toRegister';
+        form.method = "post";
+        form.submit();
+    }
+</script>
+</body>
+</html>

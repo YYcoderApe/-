@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface TbUserMapper extends BaseMapper<TbUser> {
-//    //博主登录.(根据用户名进行查询记录)
-//    TbUser userLogin(@Param("userName") String userName);
+
+    //用户登录.(根据用户名进行查询记录)
+    TbUser userLogin(@Param("userName") String userName);
 }

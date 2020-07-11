@@ -27,8 +27,7 @@ public class BloggerController {
         System.out.println(bloggerName + " " + bloggerPassword);
         TbBlogger tbBlogger = tbBloggerService.login(bloggerName, bloggerPassword);
         if (tbBlogger == null) {
-            return "redirect:blogger/login";
-
+            return "redirect:blogger/toLogin";
         }
         session.setAttribute("blogger", tbBlogger);
         return "background";
