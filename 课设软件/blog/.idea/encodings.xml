@@ -10,6 +10,9 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/blogManger.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/bloggerInfo.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/bloggerInfoUpdate.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/category.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/categoryAdd.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/categoryUpdate.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/content.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/login.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/reWriteBlog.html" charset="GBK" />

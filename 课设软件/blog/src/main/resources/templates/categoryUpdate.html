@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<div class="container">
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1>
+                    <small>修改博客类别</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <form action="" name="categoryForm"><br><br><br>
+        编号：<input type="hidden" name="categoryId" th:value="${category.getCategoryId()}"
+                  th:text="${category.getCategoryId()}"><br><br><br>
+        分类名称：<input type="text" name="categoryName"><br><br><br>
+        <input type="hidden" name="categoryState" th:value="${category.getCategoryState()}">
+        <input type="button" value="提交" onclick="updateBlogType()">
+    </form>
+
+</div>
+
+</body>
+<script type="text/javascript">
+    function updateBlogType() {
+        var curWwwPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = curWwwPath.indexOf(pathName);
+        var form = document.forms[0];
+        var localhostPahth = curWwwPath.substring(0, pos);
+        var form = document.forms[0];
+        form.action = localhostPahth+"/updateCategory";
+        form.method = "post";
+        form.submit();
+    }
+</script>
+</html>
