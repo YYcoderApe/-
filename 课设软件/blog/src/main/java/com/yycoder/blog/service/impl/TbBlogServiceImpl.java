@@ -3,6 +3,7 @@ package com.yycoder.blog.service.impl;
 import com.yycoder.blog.dao.TbBlogMapper;
 import com.yycoder.blog.dao.TbTagMapper;
 import com.yycoder.blog.entity.TbBlog;
+import com.yycoder.blog.entity.TbTag;
 import com.yycoder.blog.service.TbBlogService;
 import com.yycoder.blog.vo.BlogDetailVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +54,13 @@ public class TbBlogServiceImpl implements TbBlogService {
     @Override
     public TbBlog queryBlog(Integer id) {
         return tbBlogMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public BlogDetailVo queryBlogById(Integer blogId) {
+        BlogDetailVo blog = tbBlogMapper.queryBlogById(blogId);
+        List<TbTag> list =tbTagMapper.queryAllTagByBlogId(blogId);
+        blog.setTagList(list);
+        return blog;
     }
 }

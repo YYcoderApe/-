@@ -15,6 +15,8 @@ public interface TbBlogService {
     Integer updateBlog(TbBlog tbBlog);
 
     TbBlog queryBlog(Integer id);
+
+    BlogDetailVo queryBlogById(Integer blogId);
 }
 
 

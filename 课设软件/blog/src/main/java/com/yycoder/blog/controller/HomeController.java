@@ -3,11 +3,13 @@ package com.yycoder.blog.controller;
 import com.yycoder.blog.entity.TbBlog;
 import com.yycoder.blog.entity.TbBlogger;
 import com.yycoder.blog.entity.TbCategory;
+import com.yycoder.blog.entity.TbUser;
 import com.yycoder.blog.service.TbBlogService;
 import com.yycoder.blog.service.TbBloggerService;
 import com.yycoder.blog.service.TbCategoryService;
 import com.yycoder.blog.service.TbCommentService;
 import com.yycoder.blog.vo.BlogDetailVo;
+import com.yycoder.blog.vo.CommentsVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -88,6 +90,23 @@ public class HomeController {
             return "blank";
         }
         return "content";
+    }
+
+    @RequestMapping("/toBlog/{id}")
+    public String toBlog(Model model, @PathVariable int id){
+        TbBlog tbBlog = tbBlogService.queryBlog(id);
+        tbBlog.setBlogCount(tbBlog.getBlogCount()+1);
+        tbBlogService.updateBlog(tbBlog);
+        BlogDetailVo blog = tbBlogService.queryBlogById(id);
+        model.addAttribute("blog",blog);
+        List<CommentsVo> commentsList = tbCommentService.getCommentsList(blog.getBlogId());
+        model.addAttribute("commentsList",commentsList);
+        int count = tbCommentService.getCommentCount(blog.getBlogId());
+        model.addAttribute("count",count);
+        TbUser tbUser = new TbUser();
+        tbUser.setUserId(1);
+        model.addAttribute("tbUser",tbUser);
+        return "blog";
     }
 
 }

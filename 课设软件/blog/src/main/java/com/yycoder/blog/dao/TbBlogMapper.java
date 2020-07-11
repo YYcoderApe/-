@@ -11,8 +11,8 @@ public interface TbBlogMapper extends BaseMapper<TbBlog> {
 
 //    int updateByPrimaryKeyWithBLOBs(TbBlog record);
 //
-//    BlogDetailVo queryBlogById(Integer id);
-//
+    BlogDetailVo queryBlogById(Integer id);
+
     List<BlogDetailVo> queryAllBlog();
 
     List<BlogDetailVo> queryAllBlogByTitle(String keyWord);

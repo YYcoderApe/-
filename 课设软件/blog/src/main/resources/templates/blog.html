@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>blog</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2><p class="text-center" th:text="${blog.getBlogTitle()}"></p></h2>
+        <hr>
+        <p class="text-center" th:text="'分类:'+${blog.getCategoryName()}+'   时间:'+
+              ${#dates.format(blog.getBlogTime(),'yyyy-MM-dd HH:mm')}"></p>
+
+        <nobr class="text-center">标签：</nobr>
+        <nobr class="text-center" th:each="tag:${blog.getTagList()}">
+            <nobr class="text-center" th:text="${tag.getTagName()}+ '  '"></nobr>
+        </nobr>
+        <div th:utext="${blog.getBlogContent()}"></div>
+        <p class="text-right" th:text="'阅读量（'+${blog.getBlogCount()}+') 评论人数('+${count}+')'"></p>
+
+        <p>评论区:
+        <div th:each="user:${commentsList}" varStatus="status">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578826329&di=c2dba8fb02ba1d6507e04137df2530cc&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.51yuansu.com%2Fpic2%2Fcover%2F00%2F31%2F49%2F5810b9762573d_610.jpg"
+                 height="25"
+                 th:text="${user.getUserName()} +':'+${user.getCommentContent()}+'         时间:'+${#dates.format(user.getCommentTime(),'yyyy-MM-dd HH:mm')}"/>
+        </div>
+        </p>
+
+        </p>
+
+    </div>
+</div>
+<script type="text/javascript">
+    function writeComment() {
+        var comment = document.getElementById("commentContent").value.trim();
+        var userId = document.getElementById("userId").value.trim();
+        if (userId == null) {
+            alert("请先登录")
+            return false;
+        }
+        if (comment == null || comment == "") {
+            alert("请输入评论")
+            return false;
+        } else {
+            var form = document.forms[0];
+            if (name != null) {
+                var curWwwPath = window.document.location.href;
+                var pathName = window.document.location.pathname;
+                var pos = curWwwPath.indexOf(pathName);
+
+                var localhostPahth = curWwwPath.substring(0, pos);
+                form.action = localhostPahth + "/blogHome/writeComment";
+                form.method = "post";
+                form.submit();
+            }
+            return true;
+        }
+
+    }
+
+    function userRegister() {
+        var form = document.forms[0];
+        var curWwwPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = curWwwPath.indexOf(pathName);
+
+        var localhostPahth = curWwwPath.substring(0, pos);
+        form.action = localhostPahth + "/user/toLogin";
+        form.method = "post";
+        form.submit();
+
+    }
+</script>
+</body>
+</html>
