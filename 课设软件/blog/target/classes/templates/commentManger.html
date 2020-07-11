@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CommentManger</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div class="col-md-12 column">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1>
+                    <small>评论管理</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <tr class="col-md-12 column">
+            <table class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>commentId</th>
+                    <th>博客标题</th>
+                    <th>名字</th>
+                    <th>游客email</th>
+                    <th>评论时间</th>
+                    <th>内容</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="t:${commentsVoList}" varStatus="status">
+                    <td>
+                        <div th:text="${t.getCommentId()}"></div>
+                    </td>
+                    <td>
+                        <div th:text="${t.getBlogTitle()}"></div>
+                    </td>
+                    <td>
+                        <div th:text="${t.getUserName()}"></div>
+                    </td>
+                    <td>
+                        <div th:text="${t.getUserEmail()}"></div>
+                    </td>
+                    <td>
+                        <div th:text="${t.getCommentTime()}"></div>
+                    </td>
+                    <td>
+                        <div th:text="${t.getCommentContent()}"></div>
+                    </td>
+
+                    <td>
+                        <a th:href="@{'/delComment/'+${t.getCommentId()}}">删除</a>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </tr>
+    </div>
+</div>
+</div>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
