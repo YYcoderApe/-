@@ -19,6 +19,6 @@ public class TbCommetServiceImpl implements TbCommentService {
 
     @Override
     public List<CommentsVo> getCommentsList(Integer blogId) {
-        return null;
+        return tbCommentMapper.getCommentsList(blogId);
     }
 }

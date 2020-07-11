@@ -30,6 +30,19 @@
 
         </p>
 
+        <form class="form-horizontal" action="" name="blogForm">
+            <input type="hidden" name="blogId" th:value="${blog.getBlogId()}">
+            <input type="hidden" id="userId" name="userId" th:value="${tbUser.getUserId()}">
+            名字：<input type="text" name="name" th:value="匿名"><br>
+            你的想法：<br><textarea id="commentContent" name="commentContent" cols="70" rows="8" maxlength="150"
+                               style="resize: none"></textarea><br>(最大150字)<br><br>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-2">
+                    <input type="button" value="提交" onclick="writeComment()">
+                    <input type="button" value="用户登录" onclick="userRegister()">
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 <script type="text/javascript">
