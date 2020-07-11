@@ -22,7 +22,7 @@
 
 ​		建模工具：在线网站draw.io，使用简单，功能齐全
 
-​		文档编写工具：Microsoft office Word 2019
+​		文档编写工具：Microsoft office Word 2019，Typora（markdown语法编辑器）
 
 ​		项目管理工具：采用maven对项目依赖进行管理
 
