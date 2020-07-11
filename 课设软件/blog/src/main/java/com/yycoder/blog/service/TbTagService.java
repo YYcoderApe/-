@@ -10,4 +10,12 @@ public interface TbTagService {
     List<TbTag> queryAllTag();
 
     List<TbTag> queryAllTagByBlogId(Integer blogId);
+
+    Integer addTag(TbTag tag);
+
+    TbTag queryById(Integer tag_id);
+
+    Integer updateTag(TbTag tag);
+
+    Integer deleteTagById(Integer id);
 }

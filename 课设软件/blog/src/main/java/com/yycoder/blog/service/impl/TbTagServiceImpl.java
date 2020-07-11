@@ -14,25 +14,6 @@ public class TbTagServiceImpl implements TbTagService {
     @Autowired
     private TbTagMapper tbTagMapper;
 
-//    @Override
-//    public Integer addTag(TbTag tag) {
-//        return tbTagMapper.insert(tag);
-//    }
-//
-//    @Override
-//    public int deleteTagById(int id) {
-//        return tbTagMapper.deleteByPrimaryKey(id);
-//    }
-//
-//    @Override
-//    public int updateTag(TbTag tag) {
-//        return tbTagMapper.updateByPrimaryKey(tag);
-//    }
-//
-//    @Override
-//    public TbTag queryById(int id) {
-//        return tbTagMapper.selectByPrimaryKey(id);
-//    }
 
     @Override
     public List<TbTag> queryAllTag() {
@@ -43,4 +24,27 @@ public class TbTagServiceImpl implements TbTagService {
     public List<TbTag> queryAllTagByBlogId(Integer blogId) {
         return tbTagMapper.queryAllTagByBlogId(blogId);
     }
+
+    @Override
+    public Integer addTag(TbTag tag) {
+        return tbTagMapper.insert(tag);
+    }
+    @Override
+    public TbTag queryById(Integer id) {
+        return tbTagMapper.selectByPrimaryKey(id);
+    }
+    @Override
+    public Integer updateTag(TbTag tag) {
+        return tbTagMapper.updateByPrimaryKey(tag);
+    }
+    @Override
+    public Integer deleteTagById(Integer id) {
+        return tbTagMapper.deleteByPrimaryKey(id);
+    }
+
+
+
+
+
+
 }

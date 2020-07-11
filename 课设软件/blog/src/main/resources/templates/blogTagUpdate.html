@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<div class="container">
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1>
+                    <small>修改博客标签</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <form action="" name="blogTagForm"><br><br><br>
+        编号：<input type="hidden" name="tagId" th:value="${blogTag.getTagId()}"
+                  th:text="${blogTag.getTagId()}"><br><br><br>
+        分类名称：<input type="text" name="tagName"><br><br><br>
+        <input type="hidden" name="tagState" th:value="${blogTag.getTagState()}">
+        <input type="button" value="提交" onclick="updateBlogTag()">
+    </form>
+
+</div>
+
+</body>
+<script type="text/javascript">
+    function updateBlogTag() {
+
+        var curWwwPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = curWwwPath.indexOf(pathName);
+        var localhostPahth = curWwwPath.substring(0, pos);
+        var form = document.forms[0];
+        form.action = localhostPahth+"/updateBlogTag";
+        form.method = "post";
+        form.submit();
+    }
+</script>
+</body>
+</html>
