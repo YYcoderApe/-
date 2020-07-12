@@ -147,7 +147,7 @@
 
 ![项目启动成功](images\web_08.png)
 
-（10）在application.yml进行数据库的配置，以及mybatis与数据库mysql的连接保持正常，提前创建好数据库的数据，通过反向代理方式生成数据的基本操作方式。
+（10）在application.yml进行数据库的配置，以及mybatis与数据库mysql的连接保持正常，提前创建好数据库的数据，通过反向代理方式生成数据的基本操作方法。
 
 ![配置文件](images\web_09.png)
 

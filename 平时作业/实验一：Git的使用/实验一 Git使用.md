@@ -1,6 +1,4 @@
-Git的使用
-
----
+# Git的使用
 
 ## 一、实验目的
 1. 学习 Git 软件的安装
@@ -69,7 +67,7 @@ Git的使用
 
 等待安装完后，我们可以在之后的界面选择立即启动 Git Bash和 查看当前的版本说明。
 
-### 4.2创建本地仓库
+### 4.2 创建本地仓库
 （1）首先我们创建后一个目录，然后在文件夹里面右键点击打开 Git Gui，选择create New Repository。
 
 ![创建仓库](images\Git_01.png)
@@ -87,25 +85,25 @@ Git的使用
 ### 4.3 Git 的提交
 1. 把我们想 commit 的文件加入到 暂存区 Staged Changes(Will commit),可以直接点击 Stage Changed。
 
-  ![暂存](images\Git_05.png)
+![暂存](images\Git_05.png)
 
 2. 如果我们这时候直接点击 Commit,会发现 Commit失败,这是因为我们没有输入我们的用户信息。可以用以下方法解决：
 
-  ![错误1](images\Git_06.png)
+![错误1](images\Git_06.png)
 
   点击菜单栏上的 Edit,选择 Options，然后输入User Name 和 Email Address，最后点击save之后便可以了。
 
-  ![账号添加](images\Git_07.png)
+![账号添加](images\Git_07.png)
 
 3. 接着，我们再次点击 Commit之后，我们会发现还是提交失败，这是因为我们没有填写 Commit Message。
     ![错误2](images\Git_08.png)
 
 4. 填写完 Commit Message 之后我们便可以继续点击提交。
-    ![出入message](images\Git_09.png)message
+    ![出入message](images\Git_09.png)
 
 5. 点击commit进行提交 ，可以在历史记录进行查看提交记录。
 
-  ![commit操作](images\Git_10.png)
+![commit操作](images\Git_10.png)
 
 6. Commit之后我们点击 Push，选择提交的分支。
 
@@ -118,20 +116,18 @@ Git的使用
 
 ### 4.3 创建分支
 1. 点击菜单栏上的 Branch，输入相应的分支名字，并点击 Create 进行创建
-  ![Branch创建](images\Git_12.png)
+    ![Branch创建](images\Git_12.png)
 
 2. 创建完成后，分支列表显示该分支。
 
    ![image-20200707221610699](E:\3117007142-陈悦演-体系结构\平时作业\实验一：Git的使用\images\Git_14.png)
 
-### 4.4Git 冲突
-1从远端拉取别人上传的内容,输入用户名和密码之后便拉取成功。
+### 4.4 Git 冲突
+1.从远端拉取别人上传的内容,输入用户名和密码之后便拉取成功。
 
 ![拉取文件](images\gitClash_01.png)
 
 ![拉取成功](images\gitClash_02.png)
-
-
 
 2.进行会产生冲突的操作，master本地commit新的文件，然后push提交到远端，会发现提交失败。因为远端的版本比我的版本要新（别人有提交新的内容），我需要先下拉远端最新的版本，然后点击 Merge 合并。
 
@@ -139,23 +135,23 @@ Git的使用
 
 ![](images\gitClash_04.png)
 
-4.在菜单上点击Merge进入界面，选择要合并的分支。
+3.在菜单上点击Merge进入界面，选择要合并的分支。
 
 ![选择Merge分支](images\gitClash_05.png)
 
-5.合并失败。
+4.合并失败。
 ![合并失败](images\gitClash_06.png)
 
-6.查看冲突信息。
+5.查看冲突信息。
 ![查看冲突信息](images\gitClash_07.png)
 
-7.解决冲突。
+6.解决冲突。
 ![Remote-fetch](images\gitClash_08.png)
 
-8.再次提交
+7.再次提交
 ![Remote-fetch](images\gitClash_09.png)
 
-10.提交成功，意味着冲突已经解决
+8.提交成功，意味着冲突已经解决
 
 ![Remote-fetch](images\gitClash_10.png)
 
